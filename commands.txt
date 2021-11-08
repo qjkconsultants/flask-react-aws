@@ -1,0 +1,38 @@
+ 1381  l
+ 1382  cd users
+ 1383  l
+ 1384  cd src
+ 1385  l
+ 1386  cd db
+ 1387  l
+ 1388  vim create.sql
+ 1389  pwd
+ 1390  cd ../../../
+ 1391  cd ../
+ 1392  docker-compose down
+ 1393  export REACT_APP_API_SERVICE_URL=http://localhost:5004
+ 1394  docker-compose -f docker-compose.prod.yml up -d --build
+ 1395  docker-compose -f docker-compose.prod.yml exec api python manage.py recreate_db
+ 1396  docker-compose -f docker-compose.prod.yml exec api python manage.py seed_db
+ 1279  git add .
+ 1280  git commit -m"Initial Commit"
+ 1281  git status
+ 1282  git branch -M main
+ 1283  git remote add origin git@github.com:qjkconsultants/flask-react-aws.git
+ 1284  git push -u origin main
+ 1285  pwd
+ 1286  aws ecr get-login-password --region us-west-1 | docker login --username Qaisar --password-stdin 704754483426.dkr.ecr.us-west-1.amazonaws.com
+ 1287  aws ecr get-login-password --region us-west-1 | docker login --username qaisar --password-stdin 704754483426.dkr.ecr.us-west-1.amazonaws.com
+ 1288  aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 704754483426.dkr.ecr.us-west-1.amazonaws.com
+ 1289  docker login -u AWS -p $(aws ecr get-login-password --region us-west-1) 704754483426.dkr.ecr.the-region-you-are-in.amazonaws.com
+ 1290  docker login -u qaisar -p $(aws ecr get-login-password --region us-west-1) 704754483426.dkr.ecr.us-west-1.amazonaws.com
+ 1291  docker login -u qaisar --password-stdin $(aws ecr get-login-password --region us-west-1) 704754483426.dkr.ecr.us-west-1.amazonaws.com
+ 1292  docker login -u qaisar --password-stdin 704754483426.dkr.ecr.us-west-1.amazonaws.com
+ 1293  aws --version
+ 1294  history
+$ docker build -f services/users/Dockerfile -t 704754483426.dkr.ecr.us-west-1.amazonaws.com/test-driven-users:dev  ./services/users
+
+$ docker build -f services/client/Dockerfile -t 704754483426.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:dev ./services/client
+
+aws ecr get-login-password --region us-west-1 | docker login --username Qaisar --password-stdin 704754483426.dkr.ecr.us-west-1.amazonaws.com
+
