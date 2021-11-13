@@ -83,3 +83,45 @@ $ docker build \
 $ docker push 704754483426.dkr.ecr.us-west-1.amazonaws.com/test-driven-users:prod
 
 $ docker push 704754483426.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:prod
+
+aws --region us-west-1 rds describe-db-instances \
+  --db-instance-identifier flask-react-db \
+  --query 'DBInstances[].{DBInstanceStatus:DBInstanceStatus}'
+
+
+=========
+
+qaisar@Qaisars-Mini flask-react-aws % aws --region us-west-1 rds describe-db-instances \
+  --db-instance-identifier flask-react-db \
+  --query 'DBInstances[].{Address:Endpoint.Address}'
+[
+    {
+        "Address": "flask-react-db.c0exyhrzduco.us-west-1.rds.amazonaws.com"
+    }
+]
+
+Master username
+webapp
+Master password
+fQRbbgFLSrZKBqOiWVNHCopy
+Endpoint
+flask-react-db.c0exyhrzduco.us-west-1.rds.amazonaws.comCopy
+
+postgres://webapp:flask-react-db.c0exyhrzduco.us-west-1.rds.amazonaws.com
+
+flask-react-db.c0exyhrzduco.us-west-1.rds.amazonaws.com
+password
+fQRbbgFLSrZKBqOiWVNH
+
+postgres://webapp:fQRbbgFLSrZKBqOiWVNH@flask-react-db.c0exyhrzduco.us-west-1.rds.amazonaws.com:5432/api_prod
+
+
+
+i-0c91ac74ed8ad4ec0
+
+i-0c91ac74ed8ad4ec0
+ami-0c8b7aacccd254467
+
+us-west-1a
+/dev/xvda
+vol-0ccdfd10b717e948d
